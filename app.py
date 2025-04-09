@@ -1,11 +1,16 @@
 from flask import Flask, request, jsonify
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import T5Tokenizer
 import torch
+
+from transformers import T5ForConditionalGeneration
+
+
 
 # Load model and tokenizer
 model_dir = "chatbot_model"
-tokenizer = AutoTokenizer.from_pretrained(model_dir)
-model = AutoModelForCausalLM.from_pretrained(model_dir)
+tokenizer = T5Tokenizer.from_pretrained(model_dir)
+model = T5ForConditionalGeneration.from_pretrained(model_dir)
+
 
 # Ensure pad_token is set
 tokenizer.pad_token = tokenizer.eos_token
