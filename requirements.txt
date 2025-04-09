@@ -2,3 +2,5 @@ flask
 torch
 transformers
 gunicorn
+uvicorn
+fastapi
